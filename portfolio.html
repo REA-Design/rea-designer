@@ -120,6 +120,112 @@
       <div class="font-samples" id="detailFonts"></div>
     </div>
 
+    <div class="project-detail-block" id="detailAppsBlock">
+      <h4>تطبيقات الهوية</h4>
+      <div class="applications-slider">
+        <div class="applications-viewport" id="detailAppsViewport"></div>
+        <div class="applications-dots" id="detailAppsDots"></div>
+      </div>
+    </div>
+
+    <div class="project-detail-cta">
+      <p>هل أعجبك المشروع؟</p>
+      <a href="index.html#contact" class="main-btn">تواصل معي</a>
+    </div>
+
+  </div>
+
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
+
+  </nav>
+
+  <ul class="mobile-menu">
+    <li><a href="index.html#home">الرئيسية</a></li>
+    <li><a href="portfolio.html">معرض الأعمال</a></li>
+    <li><a href="index.html#about">من نحن</a></li>
+    <li><a href="index.html#testimonials">آراء العملاء</a></li>
+    <li><a href="index.html#contact">تواصل معنا</a></li>
+  </ul>
+</header>
+
+<!-- ============ Page Title ============ -->
+<section class="portfolio-hero">
+  <div class="section-header">
+    <h1>معرض الأعمال</h1>
+    <p class="section-description">
+      مجموعة من مشاريع الشعارات، كروت العمل، المطبوعات، الهوية البصرية ومحتوى السوشال ميديا التي صممتها لعلامات تجارية مختلفة.
+    </p>
+  </div>
+</section>
+
+<!-- ============ Filters ============ -->
+<section class="portfolio-filters">
+  <div class="filter-buttons">
+    <button class="filter-btn active" data-filter="all">الكل</button>
+    <button class="filter-btn" data-filter="logo">الشعارات</button>
+    <button class="filter-btn" data-filter="business-cards">كروت العمل</button>
+    <button class="filter-btn" data-filter="prints">المطبوعات</button>
+    <button class="filter-btn" data-filter="branding">الهوية البصرية</button>
+    <button class="filter-btn" data-filter="social">سوشال ميديا</button>
+  </div>
+
+  <!-- تظهر فقط عند اختيار "سوشال ميديا" -->
+  <div class="social-subtabs" id="socialSubtabs">
+    <button class="subtab-btn active" data-subtab="reels">ريلز</button>
+    <button class="subtab-btn" data-subtab="stories">ستوري</button>
+    <button class="subtab-btn" data-subtab="posts">بوستات</button>
+  </div>
+</section>
+
+<!-- ============ Portfolio Grid ============ -->
+<section class="portfolio-gallery">
+  <div class="portfolio-grid" id="portfolioGrid">
+    <!-- يتم تعبئة البطاقات تلقائياً بواسطة js/script.js -->
+  </div>
+
+  <p class="portfolio-empty" id="portfolioEmpty">لا توجد أعمال ضمن هذا التصنيف حاليًا.</p>
+</section>
+
+<footer class="footer">
+  <p>© <span id="year"></span> REA.DESIGNER — جميع الحقوق محفوظة</p>
+</footer>
+
+<!-- ============ Project Detail Overlay ============ -->
+<div class="project-detail" id="projectDetail">
+
+  <div class="project-detail-close">
+    <button id="projectDetailClose">إغلاق ✕</button>
+    <div class="logo"><img src="icons/rea-logo.png" alt="REA.DESIGNER" style="height:44px"></div>
+  </div>
+
+  <div class="project-detail-body">
+
+    <div class="project-detail-image">
+      <img id="detailImage" src="" alt="">
+    </div>
+
+    <h2 class="project-detail-title" id="detailTitle"></h2>
+    <p class="project-detail-subtitle" id="detailSubtitle"></p>
+
+    <div class="project-detail-block">
+      <h4>نبذة عن المشروع</h4>
+      <p class="project-detail-desc" id="detailDesc"></p>
+    </div>
+
+    <div class="project-detail-block">
+      <h4>الألوان المستخدمة</h4>
+      <div class="color-swatches" id="detailColors"></div>
+    </div>
+
+    <div class="project-detail-block">
+      <h4>الخطوط المستخدمة</h4>
+      <div class="font-samples" id="detailFonts"></div>
+    </div>
+
     <div class="project-detail-block">
       <h4>تطبيقات الهوية</h4>
       <div class="applications-slider">
