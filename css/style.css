@@ -642,29 +642,25 @@ button{
   min-height: 96px;
 }
 
-.testimonial-person{
+.testimonial-footer{
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 14px;
 }
 
-.testimonial-person img{
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  object-fit: cover;
+.testimonial-line{
+  width: 36px;
+  height: 1px;
+  background: var(--gold);
+  opacity: .6;
 }
 
-.testimonial-person h4{
-  color: var(--green);
-  font-size: .95rem;
-  margin-bottom: 3px;
-}
-
-.testimonial-person p{
-  color: var(--gray);
-  font-size: .8rem;
+.testimonial-mark{
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  opacity: .85;
 }
 
 .testimonials-controls{
