@@ -101,72 +101,25 @@ const projectsInfo = {
             ]
         },
         {
-            title: "اسم المشروع 3",
-            subtitle: "عنوان فرعي قصير",
-            desc: "وصف عن المشروع.",
-            about: "نبذة تفصيلية أوسع عن قصة المشروع وفكرته - عدّليها من هون لتختلف عن الوصف المختصر اللي فوق.",
-            colors: ["#0E4B53", "#C8A96B", "#222222", "#FAF8F5", "#FFFFFF"],
+            title: "REA.DESIGNER",
+            subtitle: "كرت العمل الشخصي",
+            desc: "كرت العمل الرسمي لهوية REA.DESIGNER بلمسة تيل غامق وفضي فاخر.",
+            about: "تصميم كرت العمل الشخصي بهوية REA.DESIGNER، بخط عربي مميز للشعار ولمسة معدنية فضية على الحواف، مع مربع QR يوصل مباشرة لكل روابط التواصل.",
+            colors: ["#053B42", "#C8A96B", "#F5F1E8", "#064C55", "#FFFFFF"],
             fonts: [
-                { name: "اسم الخط الأول", sample: "Aa" },
-                { name: "اسم الخط الثاني", sample: "Aa" }
+                { name: "Alexandria Bold", sample: "Aa" },
+                { name: "Alexandria Regular", sample: "أب" }
             ]
         },
         {
-            title: "اسم المشروع 4",
-            subtitle: "عنوان فرعي قصير",
-            desc: "وصف عن المشروع.",
-            about: "نبذة تفصيلية أوسع عن قصة المشروع وفكرته - عدّليها من هون لتختلف عن الوصف المختصر اللي فوق.",
-            colors: ["#0E4B53", "#C8A96B", "#222222", "#FAF8F5", "#FFFFFF"],
+            title: "TRU LINE",
+            subtitle: "متجر ألعاب إلكترونية",
+            desc: "كرت عمل بهوية جيمنج حديثة بألوان أزرق نيون وأسود.",
+            about: "صُمم الكرت ليعكس طابع متجر الألعاب الإلكترونية TRU LINE، باستخدام إضاءة نيون زرقاء ورموز أذرع التحكم (Xbox / PlayStation)، مع مربع QR للتواصل المباشر.",
+            colors: ["#000000", "#1A9FFF", "#FFFFFF", "#0D2B45", "#5AC8FA"],
             fonts: [
-                { name: "اسم الخط الأول", sample: "Aa" },
-                { name: "اسم الخط الثاني", sample: "Aa" }
-            ]
-        }
-    ],
-
-    prints: [
-        {
-            title: "اسم المشروع 1",
-            subtitle: "عنوان فرعي قصير",
-            desc: "وصف عن المشروع.",
-            about: "نبذة تفصيلية أوسع عن قصة المشروع وفكرته - عدّليها من هون لتختلف عن الوصف المختصر اللي فوق.",
-            colors: ["#0E4B53", "#C8A96B", "#222222", "#FAF8F5", "#FFFFFF"],
-            fonts: [
-                { name: "اسم الخط الأول", sample: "Aa" },
-                { name: "اسم الخط الثاني", sample: "Aa" }
-            ]
-        },
-        {
-            title: "اسم المشروع 2",
-            subtitle: "عنوان فرعي قصير",
-            desc: "وصف عن المشروع.",
-            about: "نبذة تفصيلية أوسع عن قصة المشروع وفكرته - عدّليها من هون لتختلف عن الوصف المختصر اللي فوق.",
-            colors: ["#0E4B53", "#C8A96B", "#222222", "#FAF8F5", "#FFFFFF"],
-            fonts: [
-                { name: "اسم الخط الأول", sample: "Aa" },
-                { name: "اسم الخط الثاني", sample: "Aa" }
-            ]
-        },
-        {
-            title: "اسم المشروع 3",
-            subtitle: "عنوان فرعي قصير",
-            desc: "وصف عن المشروع.",
-            about: "نبذة تفصيلية أوسع عن قصة المشروع وفكرته - عدّليها من هون لتختلف عن الوصف المختصر اللي فوق.",
-            colors: ["#0E4B53", "#C8A96B", "#222222", "#FAF8F5", "#FFFFFF"],
-            fonts: [
-                { name: "اسم الخط الأول", sample: "Aa" },
-                { name: "اسم الخط الثاني", sample: "Aa" }
-            ]
-        },
-        {
-            title: "اسم المشروع 4",
-            subtitle: "عنوان فرعي قصير",
-            desc: "وصف عن المشروع.",
-            about: "نبذة تفصيلية أوسع عن قصة المشروع وفكرته - عدّليها من هون لتختلف عن الوصف المختصر اللي فوق.",
-            colors: ["#0E4B53", "#C8A96B", "#222222", "#FAF8F5", "#FFFFFF"],
-            fonts: [
-                { name: "اسم الخط الأول", sample: "Aa" },
-                { name: "اسم الخط الثاني", sample: "Aa" }
+                { name: "خط العناوين اللاتيني", sample: "Aa" },
+                { name: "خط النصوص الفرعية", sample: "Aa" }
             ]
         }
     ],
@@ -235,8 +188,7 @@ const defaultFonts  = [
    جوا بيانات المشروع نفسه بملف projectsInfo. */
 const defaultAppsCountByCategory = {
     logo: 2,
-    "business-cards": 2,
-    prints: 2,
+    "business-cards": 0,
     branding: 0
 };
 
@@ -272,18 +224,16 @@ function buildCategory(folder){
 const portfolioData = {
     logo:            buildCategory("logo"),
     "business-cards": buildCategory("business-cards"),
-    prints:          buildCategory("prints"),
     branding:        buildCategory("branding")
 };
 
 /* ترتيب التصنيفات في "الكل" */
-const allCategoriesOrder = ["logo", "business-cards", "prints", "branding"];
+const allCategoriesOrder = ["logo", "business-cards", "branding"];
 
 /* أسماء وأيقونات التصنيفات لعرضها فوق كل بطاقة (اختياري) */
 const categoryLabels = {
     logo: "تصميم شعار",
     "business-cards": "كرت عمل",
-    prints: "مطبوعات",
     branding: "هوية بصرية"
 };
 
@@ -296,17 +246,18 @@ const categoryLabels = {
 const socialInfo = {
 
     reels: [
-        { title: "اسم الريل 1", caption: "وصف قصير عن الريل." },
-        { title: "اسم الريل 2", caption: "وصف قصير عن الريل." },
-        { title: "اسم الريل 3", caption: "وصف قصير عن الريل." },
-        { title: "اسم الريل 4", caption: "وصف قصير عن الريل." }
+        { title: "من فلسطين لبرلين", caption: "" },
+        { title: "الكوفية الفلسطينية", caption: "" },
+        { title: "صوت يصل، وتصميم يُرى", caption: "" },
+        { title: "معاناة المصمم مع العميل", caption: "" },
+        { title: "خلي كرت عرسك يحكي عنك", caption: "" }
     ],
 
     stories: [
-        { title: "اسم الستوري 1", caption: "وصف قصير عن الستوري." },
-        { title: "اسم الستوري 2", caption: "وصف قصير عن الستوري." },
-        { title: "اسم الستوري 3", caption: "وصف قصير عن الستوري." },
-        { title: "اسم الستوري 4", caption: "وصف قصير عن الستوري." }
+        { title: "قبل / بعد - دعوة زفاف", caption: "مقارنة بين تصميم قديم وتصميم دعوة زفاف بهوية REA.DESIGNER." },
+        { title: "منشور جديد - AL RAHEEQ", caption: "إعلان عن منشور جديد لهوية AL RAHEEQ DRY CLEAN." },
+        { title: "بداية شغل جديد", caption: "ستوري تشويقية عن بداية مشروع جديد." },
+        { title: "فقرة حزر فزر", caption: "ستوري تفاعلية من كواليس مشروع قيد التنفيذ." }
     ],
 
     posts: [
@@ -322,19 +273,21 @@ const socialInfo = {
 };
 
 /* سوشيال ميديا: ريلز / ستوري / بوستات
-   عدد الريلز والستوري 4 لكل وحدة، وعدد البوستات مرن (حاليًا 7) -
-   لو ضفتي بوستات أكتر بالمستقبل، بس زيدي رقم postsCount تحت. */
+   عدد الريلز والبوستات مرن (حاليًا 5 و7) وعدد الستوري ثابت 4 -
+   لو ضفتي أكتر بالمستقبل، بس زيدي الرقم المناسب تحت. */
 const postsCount = 7;
+const reelsCount = 5;
 
 const socialData = {
-    reels: [1, 2, 3, 4].map(function(i){
+    reels: Array.from({ length: reelsCount }, function(_, idx){
+        const i = idx + 1;
         const info = socialInfo.reels[i - 1] || {};
         return {
             id: "reels-" + i,
             video: "images/social/reels/" + i + ".mp4",
             poster: "images/social/reels/" + i + "-cover.png",
             title: info.title || "منشور REA.DESIGNER",
-            caption: info.caption || "تصميم منشور سوشال ميديا لعلامة تجارية."
+            caption: info.caption || ""
         };
     }),
     stories: [1, 2, 3, 4].map(function(i){
@@ -558,7 +511,7 @@ if(portfolioGrid){
                     '</div>' +
                     '<div class="portfolio-info">' +
                         '<h3>' + item.title + '</h3>' +
-                        '<p>' + item.caption + '</p>' +
+                        (item.caption ? '<p>' + item.caption + '</p>' : '') +
                     '</div>' +
                 '</div>'
             );
@@ -607,13 +560,16 @@ if(portfolioGrid){
 
     function attachItemClicks(categoryKey){
         portfolioGrid.querySelectorAll(".portfolio-item").forEach(function(card){
-            /* الفيديوهات وصور الستوري/البوست ما بتفتح صفحة تفاصيل، فقط الشعارات/كروت العمل/المطبوعات/الهوية */
+            /* بس قسم الشعارات (logo) بيفتح صفحة تفاصيل. الباقي (كروت عمل/مطبوعات/هوية بصرية/سوشيال ميديا)
+               بيبقى بس صورة معروضة بتأثير الضغط، بدون ما تفتح أي صفحة. */
             if(!categoryKey || categoryKey === "social") return;
+
+            const cat = card.dataset.category;
+            if(cat !== "logo") return;
 
             card.addEventListener("click", function(e){
                 if(e.target.tagName === "VIDEO") return;
                 const id = card.dataset.id;
-                const cat = card.dataset.category;
                 openProjectDetail(cat, id);
             });
         });
@@ -720,6 +676,14 @@ if(portfolioGrid){
             detailSubtitle.style.display = project.subtitle ? "block" : "none";
         }
         detailDesc.textContent = project.about;
+
+        /* الألوان والخطوط تظهر بس لقسم الشعارات (logo) */
+        const detailColorsBlock = document.getElementById("detailColorsBlock");
+        const detailFontsBlock = document.getElementById("detailFontsBlock");
+        const showColorsAndFonts = category === "logo";
+
+        if (detailColorsBlock) detailColorsBlock.style.display = showColorsAndFonts ? "" : "none";
+        if (detailFontsBlock) detailFontsBlock.style.display = showColorsAndFonts ? "" : "none";
 
         detailColors.innerHTML = project.colors.map(function(c){
             return '<span class="color-swatch" style="background:' + c + '"></span>';
