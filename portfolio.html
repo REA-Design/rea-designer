@@ -138,12 +138,22 @@
 
 <script src="js/script.js"></script>
 <div class="post-gallery" id="postGallery">
+  <div class="post-gallery-topbar">
+    <button class="post-gallery-back" id="postGalleryClose">
+      <span class="back-arrow">→</span> رجوع لكل المنشورات
+    </button>
+    <div class="social-subtabs post-gallery-subtabs" id="postGallerySubtabs">
+      <button class="subtab-btn" data-subtab="reels">ريلز</button>
+      <button class="subtab-btn" data-subtab="stories">ستوري</button>
+      <button class="subtab-btn active" data-subtab="posts">بوستات</button>
+    </div>
+  </div>
   <div class="post-gallery-header">
     <div>
+      <span class="post-gallery-current-folder" id="postGalleryFolderTag"></span>
       <h3 id="postGalleryTitle"></h3>
       <p id="postGalleryDesc"></p>
     </div>
-    <button class="lightbox-close" id="postGalleryClose" aria-label="إغلاق">×</button>
   </div>
   <div class="post-gallery-grid" id="postGalleryGrid"></div>
 </div>
