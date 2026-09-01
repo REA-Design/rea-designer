@@ -109,6 +109,15 @@ button{
   min-height: 92px;
 }
 
+/* على الحاسوب: نقرّب العناوين من اللوجو بدل ما تنشد لطرف الصفحة التاني
+   وتسيب فراغ ميت بالنص */
+@media (min-width: 861px){
+  .navbar{
+    justify-content: flex-start;
+    gap: 64px;
+  }
+}
+
 .nav-right{
   display: flex;
   align-items: center;
@@ -1286,8 +1295,25 @@ button{
 }
 
 @media (max-width: 860px){
-  .navbar{ min-height: 76px; padding: 8px 16px; }
-  .logo img{ height: 100px; }
+  .navbar{
+    min-height: 76px;
+    padding: 8px 16px;
+    position: relative;
+    justify-content: center;
+  }
+  .logo img{ height: 108px; }
+  .logo{
+    margin: 0 auto;
+  }
+  .menu-toggle{
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+  }
+  .menu-toggle.active{
+    transform: translateY(-50%);
+  }
 
   .hero-container{
     flex-direction: column;
@@ -1371,14 +1397,16 @@ button{
   border-radius: 6px;
 }
 
-/* مقاس معاينة الستوري: إطار عمودي 9:16 حقيقي، مش سكرين كامل عشوائي */
+/* مقاس معاينة الستوري: إطار عمودي 9:16 حقيقي متل شاشة الموبايل،
+   بس بدون ما نقص أي جزء من التصميم أو النص (contain مش cover) */
 .lightbox.story-mode img{
   height: 88vh;
   max-height: 88vh;
   width: auto;
   max-width: 100%;
   aspect-ratio: 9 / 16;
-  object-fit: cover;
+  object-fit: contain;
+  background: #0b1417;
   border-radius: 18px;
   box-shadow: 0 20px 60px rgba(0,0,0,.5);
 }
@@ -1466,6 +1494,38 @@ button{
 
 .post-gallery-subtabs{
   margin: 0;
+}
+
+.post-gallery-folders{
+  max-width: 900px;
+  margin: 0 auto 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.folder-pill{
+  font-family: 'Alexandria', sans-serif;
+  font-size: .84rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(14,75,83,.15);
+  background: var(--bg);
+  color: var(--green);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  white-space: nowrap;
+}
+
+.folder-pill:hover{
+  border-color: var(--green);
+}
+
+.folder-pill.active{
+  background: var(--green);
+  color: var(--white);
+  border-color: var(--green);
 }
 
 .post-gallery-header{
