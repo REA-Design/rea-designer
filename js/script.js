@@ -282,7 +282,7 @@ const postGroups = [
         title: "بوستات إخبارية - راديو حياة",
         desc: "مجموعة بوستات إخبارية صُممت لصفحة راديو حياة.",
         folder: "images/social/posts/radio-hayat-news",
-        count: 14,
+        count: 12,
         ready: true
     },
     {
