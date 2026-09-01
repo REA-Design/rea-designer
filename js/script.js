@@ -788,7 +788,22 @@ if(portfolioGrid){
     const postGalleryClose = document.getElementById("postGalleryClose");
 
     const postGalleryFolderTag = document.getElementById("postGalleryFolderTag");
+    const postGalleryFoldersWrap = document.getElementById("postGalleryFolders");
     const postGallerySubtabButtons = document.querySelectorAll("#postGallerySubtabs .subtab-btn");
+
+    function renderPostGalleryFolders(activeId){
+        if(!postGalleryFoldersWrap) return;
+        postGalleryFoldersWrap.innerHTML = socialData.posts.map(function(group){
+            return '<button class="folder-pill' + (group.id === activeId ? ' active' : '') +
+                   '" data-group-id="' + group.id + '">' + group.title + '</button>';
+        }).join("");
+        postGalleryFoldersWrap.querySelectorAll(".folder-pill").forEach(function(btn){
+            btn.addEventListener("click", function(){
+                const group = socialData.posts.find(function(p){ return p.id === btn.dataset.groupId; });
+                if(group){ openPostGallery(group); }
+            });
+        });
+    }
 
     function openPostGallery(group){
         if(!postGalleryOverlay) return;
@@ -804,6 +819,7 @@ if(portfolioGrid){
         postGallerySubtabButtons.forEach(function(btn){
             btn.classList.toggle("active", btn.dataset.subtab === "posts");
         });
+        renderPostGalleryFolders(group.id);
         postGalleryOverlay.classList.add("active");
         document.body.style.overflow = "hidden";
         window.scrollTo({ top: 0 });
