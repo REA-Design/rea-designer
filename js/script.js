@@ -1,3 +1,4 @@
+
 /*
 =====================================================
 REA.DESIGNER PORTFOLIO
@@ -260,22 +261,101 @@ const socialInfo = {
         { title: "فقرة حزر فزر", caption: "ستوري تفاعلية من كواليس مشروع قيد التنفيذ." }
     ],
 
-    posts: [
-        { title: "تعزية - راديو حياة", caption: "بوست تعزية لصفحة راديو حياة." },
-        { title: "أم كلثوم - راديو حياة", caption: "بوست إعلاني لبرنامج أم كلثوم اليومي." },
-        { title: "حملة اعتقالات - راديو حياة", caption: "بوست إخباري لحملات الاعتقالات." },
-        { title: "الغلطة اللي كل مصمم بيقع فيها", caption: "بوست نصيحة تصميم لصفحة REA.DESIGNER." },
-        { title: "الشكل مو كل شي", caption: "بوست نصيحة تصميم لصفحة REA.DESIGNER." },
-        { title: "احفظ البوست", caption: "بوست تفاعلي لصفحة REA.DESIGNER." },
-        { title: "تصميم ذكي يترك فكرة واضحة", caption: "بوست نصيحة تصميم لصفحة REA.DESIGNER." }
-    ]
+    posts: [] /* استبدلنا الطريقة القديمة بمجموعات (postGroups) تحت */
 
 };
 
-/* سوشيال ميديا: ريلز / ستوري / بوستات
-   عدد الريلز والبوستات مرن (حاليًا 5 و7) وعدد الستوري ثابت 4 -
-   لو ضفتي أكتر بالمستقبل، بس زيدي الرقم المناسب تحت. */
-const postsCount = 7;
+/* ============================================================
+   مجموعات البوستات (posts) - كل مجموعة = كارد غلاف، وبالضغط عليه
+   بيفتح معرض فيه كل صور المجموعة.
+
+   ready:true  => المجموعة جاهزة وبتظهر بالموقع
+   ready:false => المجموعة جاهزة بالكود بس الصور لسا ما وصلت،
+                  فما بتظهر بالموقع. لما توصل الصور:
+                  1) حطي الصور بمسار "folder" (مسمّاة 1.png, 2.png...)
+                  2) غيّري count لعدد الصور الفعلي
+                  3) غيّري ready لـ true
+   ============================================================ */
+const postGroups = [
+    {
+        id: "radio-hayat-news",
+        title: "بوستات إخبارية - راديو حياة",
+        desc: "مجموعة بوستات إخبارية صُممت لصفحة راديو حياة.",
+        folder: "images/social/posts/radio-hayat-news",
+        count: 14,
+        ready: true
+    },
+    {
+        id: "radio-hayat-programs",
+        title: "بوستات البرامج الإذاعية - راديو حياة",
+        desc: "بوستات إعلانية للبرامج الإذاعية على راديو حياة.",
+        folder: "images/social/posts/radio-hayat-programs",
+        count: 2,
+        ready: true
+    },
+    {
+        id: "rea-tips",
+        title: "بوستات نصائح تصميم - REA.DESIGNER",
+        desc: "مجموعة بوستات نصائح وتوعية بعالم التصميم.",
+        folder: "images/social/posts/rea-tips",
+        count: 4,
+        ready: true
+    },
+    {
+        id: "rea-interactive",
+        title: "بوست تفاعلي معلومات - REA.DESIGNER",
+        desc: "بوست معلومات تفاعلي بصفحة REA.DESIGNER.",
+        folder: "images/social/posts/rea-interactive",
+        count: 2,
+        ready: true
+    },
+    {
+        id: "design-quality",
+        title: "أنت بتعرف؟ - شو يعني التصميم الجيد",
+        desc: "سلسلة بوستات تفاعلية توضح مفهوم التصميم الجيد بأسلوب خفيف.",
+        folder: "images/social/posts/design-quality",
+        count: 3,
+        ready: true
+    }
+
+    /* ==== مجموعات جاهزة بالكود، بستنى الصور منك — بس فكّي التعليق وعدّلي count وready ====
+    ,{
+        id: "mawlid-greetings",
+        title: "تهنئة المولد النبوي",
+        desc: "تصاميم تهنئة بالمولد النبوي الشريف لأكثر من جهة.",
+        folder: "images/social/posts/mawlid-greetings",
+        count: 0,
+        ready: false
+    },
+    {
+        id: "eid-adha-greetings",
+        title: "تهنئة عيد الأضحى المبارك",
+        desc: "تصاميم تهنئة بعيد الأضحى لأكثر من جهة.",
+        folder: "images/social/posts/eid-adha-greetings",
+        count: 0,
+        ready: false
+    },
+    {
+        id: "eid-fitr-greetings",
+        title: "تهنئة عيد الفطر المبارك",
+        desc: "تصاميم تهنئة بعيد الفطر لأكثر من جهة.",
+        folder: "images/social/posts/eid-fitr-greetings",
+        count: 0,
+        ready: false
+    },
+    {
+        id: "ramadan-posts",
+        title: "بوستات رمضان",
+        desc: "مجموعة بوستات وتصاميم خاصة بشهر رمضان.",
+        folder: "images/social/posts/ramadan-posts",
+        count: 0,
+        ready: false
+    }
+    ==================================================================================== */
+];
+
+/* سوشيال ميديا: ريلز مرن (حاليًا 5) وعدد الستوري ثابت 4.
+   البوستات بقت منظمة كمجموعات (postGroups) فوق، مو رقم واحد. */
 const reelsCount = 5;
 
 const socialData = {
@@ -299,14 +379,13 @@ const socialData = {
             caption: info.caption || "تصميم منشور سوشال ميديا لعلامة تجارية."
         };
     }),
-    posts: Array.from({ length: postsCount }, function(_, idx){
-        const i = idx + 1;
-        const info = socialInfo.posts[i - 1] || {};
+    posts: postGroups.filter(function(g){ return g.ready; }).map(function(g){
         return {
-            id: "posts-" + i,
-            image: "images/social/posts/" + i + ".png",
-            title: info.title || "منشور REA.DESIGNER",
-            caption: info.caption || "تصميم منشور سوشال ميديا لعلامة تجارية."
+            id: g.id,
+            image: g.folder + "/1.png",
+            title: g.title,
+            caption: g.desc,
+            gallery: Array.from({ length: g.count }, function(_, i){ return g.folder + "/" + (i + 1) + ".png"; })
         };
     })
 };
@@ -560,18 +639,51 @@ if(portfolioGrid){
 
     function attachItemClicks(categoryKey){
         portfolioGrid.querySelectorAll(".portfolio-item").forEach(function(card){
-            /* بس قسم الشعارات (logo) بيفتح صفحة تفاصيل. الباقي (كروت عمل/مطبوعات/هوية بصرية/سوشيال ميديا)
-               بيبقى بس صورة معروضة بتأثير الضغط، بدون ما تفتح أي صفحة. */
+            /* بس قسم الشعارات (logo) بيفتح صفحة تفاصيل. كروت العمل والهوية البصرية
+               بيفتحوا الصورة بملء الشاشة (Lightbox). السوشيال ميديا بدون أي تفاعل. */
             if(!categoryKey || categoryKey === "social") return;
 
             const cat = card.dataset.category;
-            if(cat !== "logo") return;
 
-            card.addEventListener("click", function(e){
-                if(e.target.tagName === "VIDEO") return;
-                const id = card.dataset.id;
-                openProjectDetail(cat, id);
-            });
+            if(cat === "logo"){
+                card.addEventListener("click", function(e){
+                    if(e.target.tagName === "VIDEO") return;
+                    const id = card.dataset.id;
+                    openProjectDetail(cat, id);
+                });
+                return;
+            }
+
+            if(cat === "business-cards" || cat === "branding"){
+                card.addEventListener("click", function(){
+                    const img = card.querySelector("img");
+                    if(img){ openLightbox(img.src, img.alt); }
+                });
+            }
+        });
+    }
+
+    const imageLightbox = document.getElementById("imageLightbox");
+    const lightboxImg = document.getElementById("lightboxImg");
+    const lightboxClose = document.getElementById("lightboxClose");
+
+    function openLightbox(src, alt){
+        if(!imageLightbox || !lightboxImg) return;
+        lightboxImg.src = src;
+        lightboxImg.alt = alt || "";
+        imageLightbox.classList.add("active");
+    }
+
+    function closeLightbox(){
+        if(!imageLightbox) return;
+        imageLightbox.classList.remove("active");
+        lightboxImg.src = "";
+    }
+
+    if(lightboxClose){ lightboxClose.addEventListener("click", closeLightbox); }
+    if(imageLightbox){
+        imageLightbox.addEventListener("click", function(e){
+            if(e.target === imageLightbox){ closeLightbox(); }
         });
     }
 
@@ -585,6 +697,7 @@ if(portfolioGrid){
         }
 
         if(socialSubtabsWrap){ socialSubtabsWrap.classList.remove("active"); }
+        portfolioGrid.classList.remove("is-stories", "is-reels");
 
         let items = [];
 
@@ -618,12 +731,57 @@ if(portfolioGrid){
             btn.classList.toggle("active", btn.dataset.subtab === tab);
         });
 
+        /* كلاس خاص لكل نوع محتوى عشان نضبط نسبة العرض (ستوري/ريلز) بالـ CSS */
+        portfolioGrid.classList.toggle("is-stories", tab === "stories");
+        portfolioGrid.classList.toggle("is-reels", tab === "reels");
+
         if(tab === "reels"){
             renderGrid(socialData.reels, "video", "social");
+        } else if(tab === "posts"){
+            renderGrid(socialData.posts, "image-only", "social");
+            attachPostGroupClicks();
         } else {
             renderGrid(socialData[tab], "image-only", "social");
         }
     }
+
+    function attachPostGroupClicks(){
+        portfolioGrid.querySelectorAll(".portfolio-item").forEach(function(card){
+            const id = card.dataset.id;
+            const group = socialData.posts.find(function(p){ return p.id === id; });
+            if(!group) return;
+            card.style.cursor = "pointer";
+            card.addEventListener("click", function(){
+                openPostGallery(group);
+            });
+        });
+    }
+
+    const postGalleryOverlay = document.getElementById("postGallery");
+    const postGalleryTitle = document.getElementById("postGalleryTitle");
+    const postGalleryDesc = document.getElementById("postGalleryDesc");
+    const postGalleryGrid = document.getElementById("postGalleryGrid");
+    const postGalleryClose = document.getElementById("postGalleryClose");
+
+    function openPostGallery(group){
+        if(!postGalleryOverlay) return;
+        postGalleryTitle.textContent = group.title;
+        postGalleryDesc.textContent = group.caption;
+        postGalleryGrid.innerHTML = group.gallery.map(function(src){
+            return '<img src="' + src + '" alt="' + group.title + '">';
+        }).join("");
+        postGalleryGrid.querySelectorAll("img").forEach(function(img){
+            img.addEventListener("click", function(){ openLightbox(img.src, img.alt); });
+        });
+        postGalleryOverlay.classList.add("active");
+    }
+
+    function closePostGallery(){
+        if(!postGalleryOverlay) return;
+        postGalleryOverlay.classList.remove("active");
+    }
+
+    if(postGalleryClose){ postGalleryClose.addEventListener("click", closePostGallery); }
 
     filterButtons.forEach(function(btn){
         btn.addEventListener("click", function(){
