@@ -1,4 +1,3 @@
-
 /*
 =====================================================
 REA.DESIGNER PORTFOLIO
@@ -562,6 +561,14 @@ if(testimonialsTrack && testimonialCards.length > 0){
         });
     }
 
+    /* لو المستخدم رجع لهاي الصفحة من صفحة تانية (زر رجوع بالمتصفح/الجوال)،
+       المتصفح أحياناً بيرجع نسخة محفوظة (bfcache) قبل ما التخطيط يخلص،
+       فبنعيد ضبط السلايدر يدويًا لأول عنصر عشان ما يطلع مخربش. */
+    window.addEventListener("pageshow", function(){
+        testimonialIndex = 0;
+        updateTestimonials();
+    });
+
 }
 
 
@@ -667,16 +674,18 @@ if(portfolioGrid){
     const lightboxImg = document.getElementById("lightboxImg");
     const lightboxClose = document.getElementById("lightboxClose");
 
-    function openLightbox(src, alt){
+    function openLightbox(src, alt, mode){
         if(!imageLightbox || !lightboxImg) return;
         lightboxImg.src = src;
         lightboxImg.alt = alt || "";
+        imageLightbox.classList.toggle("story-mode", mode === "story");
         imageLightbox.classList.add("active");
     }
 
     function closeLightbox(){
         if(!imageLightbox) return;
         imageLightbox.classList.remove("active");
+        imageLightbox.classList.remove("story-mode");
         lightboxImg.src = "";
     }
 
@@ -740,9 +749,24 @@ if(portfolioGrid){
         } else if(tab === "posts"){
             renderGrid(socialData.posts, "image-only", "social");
             attachPostGroupClicks();
+        } else if(tab === "stories"){
+            renderGrid(socialData.stories, "image-only", "social");
+            attachStoryClicks();
         } else {
             renderGrid(socialData[tab], "image-only", "social");
         }
+    }
+
+    /* الستوري: تفتح بمعاينة بمقاس الستوري (9:16) بدل ما تنفتح بمقاس عشوائي */
+    function attachStoryClicks(){
+        portfolioGrid.querySelectorAll(".portfolio-item").forEach(function(card){
+            const img = card.querySelector("img");
+            if(!img) return;
+            card.style.cursor = "pointer";
+            card.addEventListener("click", function(){
+                openLightbox(img.src, img.alt, "story");
+            });
+        });
     }
 
     function attachPostGroupClicks(){
@@ -763,8 +787,12 @@ if(portfolioGrid){
     const postGalleryGrid = document.getElementById("postGalleryGrid");
     const postGalleryClose = document.getElementById("postGalleryClose");
 
+    const postGalleryFolderTag = document.getElementById("postGalleryFolderTag");
+    const postGallerySubtabButtons = document.querySelectorAll("#postGallerySubtabs .subtab-btn");
+
     function openPostGallery(group){
         if(!postGalleryOverlay) return;
+        if(postGalleryFolderTag){ postGalleryFolderTag.textContent = "📁 " + group.title; }
         postGalleryTitle.textContent = group.title;
         postGalleryDesc.textContent = group.caption;
         postGalleryGrid.innerHTML = group.gallery.map(function(src){
@@ -773,15 +801,32 @@ if(portfolioGrid){
         postGalleryGrid.querySelectorAll("img").forEach(function(img){
             img.addEventListener("click", function(){ openLightbox(img.src, img.alt); });
         });
+        postGallerySubtabButtons.forEach(function(btn){
+            btn.classList.toggle("active", btn.dataset.subtab === "posts");
+        });
         postGalleryOverlay.classList.add("active");
+        document.body.style.overflow = "hidden";
+        window.scrollTo({ top: 0 });
     }
 
     function closePostGallery(){
         if(!postGalleryOverlay) return;
         postGalleryOverlay.classList.remove("active");
+        document.body.style.overflow = "";
     }
 
     if(postGalleryClose){ postGalleryClose.addEventListener("click", closePostGallery); }
+
+    /* بانرات ريلز/ستوري/بوستات جوا معرض الصور نفسه - بتسمح تتنقلي
+       لنوع محتوى تاني بدون لا ترجعي للخلف ولا تضيعي مكانك */
+    postGallerySubtabButtons.forEach(function(btn){
+        btn.addEventListener("click", function(){
+            closePostGallery();
+            if(socialSubtabsWrap){ socialSubtabsWrap.classList.add("active"); }
+            renderSocialTab(btn.dataset.subtab);
+            window.scrollTo({ top: portfolioGrid.offsetTop - 120, behavior: "smooth" });
+        });
+    });
 
     filterButtons.forEach(function(btn){
         btn.addEventListener("click", function(){
