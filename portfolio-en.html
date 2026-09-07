@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="light">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio | REA.DESIGNER</title>
+<meta name="description" content="REA.DESIGNER portfolio: logos, business cards, print, visual identity, and social media designs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=16">
+</head>
+<body>
+
+<!-- ============ Navbar ============ -->
+<header class="header">
+  <nav class="navbar">
+
+    <div class="logo">
+      <a href="index-en.html#home"><img src="icons/rea-logo.png" alt="REA.DESIGNER"></a>
+    </div>
+
+    <div class="nav-right">
+      <ul class="menu">
+        <li><a href="index-en.html#home">Home</a></li>
+        <li><a href="portfolio-en.html" class="active-link">Portfolio</a></li>
+        <li><a href="index-en.html#about">About</a></li>
+        <li><a href="index-en.html#testimonials">Testimonials</a></li>
+        <li><a href="index-en.html#faq">FAQ</a></li>
+        <li><a href="index-en.html#contact">Contact</a></li>
+      </ul>
+
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Change language">AR</button>
+
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+  </nav>
+
+  <ul class="mobile-menu">
+    <li><a href="index-en.html#home">Home</a></li>
+    <li><a href="portfolio-en.html">Portfolio</a></li>
+    <li><a href="index-en.html#about">About</a></li>
+    <li><a href="index-en.html#testimonials">Testimonials</a></li>
+    <li><a href="index-en.html#faq">FAQ</a></li>
+    <li><a href="index-en.html#contact">Contact</a></li>
+  </ul>
+</header>
+
+<!-- بريدكرمب صغير يظهر بس لما نكون جوا قسم/مشروع/صورة مفتوحة -->
+<div class="page-breadcrumb" id="pageBreadcrumb">
+  <div class="page-breadcrumb-inner" id="pageBreadcrumbInner"></div>
+</div>
+
+<!-- ============ Page Title ============ -->
+<section class="portfolio-hero">
+  <div class="section-header">
+    <h1>Portfolio</h1>
+    <p class="section-description">
+      A collection of logo, business card, print, visual identity, and social media projects designed for various brands.
+    </p>
+  </div>
+</section>
+
+<!-- ============ Filters ============ -->
+<section class="portfolio-filters">
+
+  <div class="portfolio-search">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M20 20 16.5 16.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+    <input type="text" id="portfolioSearch" placeholder="Search by project or collection name...">
+  </div>
+
+  <div class="filter-buttons">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="logo">Logos</button>
+    <button class="filter-btn" data-filter="business-cards">Business Cards</button>
+    <button class="filter-btn" data-filter="branding">Visual Identity</button>
+    <button class="filter-btn" data-filter="social">Social Media</button>
+  </div>
+
+  <!-- تظهر فقط عند اختيار "Social Media" -->
+  <div class="social-subtabs" id="socialSubtabs">
+    <button class="subtab-btn active" data-subtab="reels">Reels</button>
+    <button class="subtab-btn" data-subtab="stories">Stories</button>
+    <button class="subtab-btn" data-subtab="posts">Posts</button>
+  </div>
+</section>
+
+<!-- ============ Portfolio Grid ============ -->
+<section class="portfolio-gallery">
+  <div class="portfolio-grid" id="portfolioGrid">
+    <!-- يتم تعبئة البطاقات تلقائياً بواسطة js/script.js -->
+  </div>
+
+  <p class="portfolio-empty" id="portfolioEmpty">No work found in this category yet.</p>
+</section>
+
+<footer class="footer">
+  <p>© <span id="year"></span> REA.DESIGNER — All Rights Reserved</p>
+</footer>
+
+<!-- ============ Project Detail Overlay ============ -->
+<div class="project-detail" id="projectDetail">
+
+  <div class="project-detail-body">
+
+    <div class="project-detail-image">
+      <img id="detailImage" src="" alt="">
+    </div>
+
+    <h2 class="project-detail-title" id="detailTitle"></h2>
+    <p class="project-detail-subtitle" id="detailSubtitle"></p>
+
+    <div class="project-detail-block">
+      <h4>About the Project</h4>
+      <p class="project-detail-desc" id="detailDesc"></p>
+    </div>
+
+    <div class="project-detail-block" id="detailColorsBlock">
+      <h4>Colors Used</h4>
+      <div class="color-swatches" id="detailColors"></div>
+    </div>
+
+    <div class="project-detail-block" id="detailFontsBlock">
+      <h4>Fonts Used</h4>
+      <div class="font-samples" id="detailFonts"></div>
+    </div>
+
+    <div class="project-detail-block" id="detailAppsBlock">
+      <h4>Identity Applications</h4>
+      <div class="applications-slider">
+        <div class="applications-viewport" id="detailAppsViewport"></div>
+        <div class="applications-dots" id="detailAppsDots"></div>
+      </div>
+    </div>
+
+    <div class="project-detail-cta">
+      <p>Like this project?</p>
+      <div class="project-detail-cta-actions">
+        <a href="index-en.html#contact" class="main-btn">Start Your Project Now</a>
+        <button type="button" class="share-btn" id="projectShareBtn">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="18" cy="5" r="2.6" stroke="currentColor" stroke-width="1.7"/>
+            <circle cx="6" cy="12" r="2.6" stroke="currentColor" stroke-width="1.7"/>
+            <circle cx="18" cy="19" r="2.6" stroke="currentColor" stroke-width="1.7"/>
+            <path d="M8.3 10.7 15.7 6.6M8.3 13.3 15.7 17.4" stroke="currentColor" stroke-width="1.7"/>
+          </svg>
+          Share
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script src="js/script.js?v=16"></script>
+<div class="post-gallery" id="postGallery">
+  <div class="post-gallery-header">
+    <div>
+      <h3 id="postGalleryTitle"></h3>
+      <p id="postGalleryDesc"></p>
+    </div>
+    <div class="project-detail-cta-actions post-gallery-actions">
+      <button type="button" class="share-btn" id="postGalleryShareBtn">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="18" cy="5" r="2.6" stroke="currentColor" stroke-width="1.7"/>
+          <circle cx="6" cy="12" r="2.6" stroke="currentColor" stroke-width="1.7"/>
+          <circle cx="18" cy="19" r="2.6" stroke="currentColor" stroke-width="1.7"/>
+          <path d="M8.3 10.7 15.7 6.6M8.3 13.3 15.7 17.4" stroke="currentColor" stroke-width="1.7"/>
+        </svg>
+        Share
+      </button>
+      <a href="index-en.html#contact" class="main-btn-outline">Have a question?</a>
+    </div>
+  </div>
+  <div class="post-gallery-grid" id="postGalleryGrid"></div>
+</div>
+
+<div class="lightbox" id="imageLightbox">
+  <img id="lightboxImg" src="" alt="">
+  <div class="lightbox-actions">
+    <a href="index-en.html#contact" class="lightbox-cta" id="lightboxCta">Start Your Project Now</a>
+    <button type="button" class="lightbox-share" id="lightboxShareBtn">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="5" r="2.6" stroke="currentColor" stroke-width="1.7"/>
+        <circle cx="6" cy="12" r="2.6" stroke="currentColor" stroke-width="1.7"/>
+        <circle cx="18" cy="19" r="2.6" stroke="currentColor" stroke-width="1.7"/>
+        <path d="M8.3 10.7 15.7 6.6M8.3 13.3 15.7 17.4" stroke="currentColor" stroke-width="1.7"/>
+      </svg>
+      Share
+    </button>
+  </div>
+</div>
+
+</body>
+</html>
